@@ -4,7 +4,9 @@ import Row from "../../ui/Row";
 import Heading from "../../ui/Heading";
 
 export default function Avatar() {
-  const { data } = useUser();
+  const { data, isPending } = useUser();
+
+  if (isPending) return null;
   const { avatar, fullName } = data.user.user_metadata;
 
   return (
